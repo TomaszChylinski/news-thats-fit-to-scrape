@@ -36,20 +36,20 @@ mongoose.connect("mongodb://localhost/newsThatFitToScrape", {
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with axios
-  axios.get("https://www.interia.pl/").then(function(response) {
+  axios.get("https://www.skysports.com/football").then(function(response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
 
     // Now, we grab every h2 within an article tag, and do the following:
-    $("article h2").each(function(i, element) {
+    $("div.news-list.block").each(function(i, element) {
       // Save an empty result object
       var result = {};
 
       // Add the text and href of every link, and save them as properties of the result object
       result.title = $(this)
-        .children("a")
+        .children("h4")
         .text();
-
+        console.log(result.title, ' headers')
       result.summary = $(this)
         .children("a")
         .text();
