@@ -3,8 +3,12 @@ $.getJSON("/articles", function(data) {
     // For each one
     for (var i = 0; i < data.length; i++) {
       // Display the apropos information on the page
-      $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
-    }
+      $("#articles").append("<h3 data-id='" + data[i]._id + "'>" + "Article "+[i+1] + "</h3>", 
+        
+      "<p>" + " <b> Title: </b>"+ data[i].title +  "<br />" +  
+      "<b> Summary: </b> " + data[i].summary + "<br /> "+
+      "<b> Link:</b> https://www.nytimes.com/"+data[i].link + "</p> </hr>");
+    }                      
   });
   
   

@@ -51,6 +51,9 @@ a{
     color: white;
     padding-right: .5rem;
     padding-left: .5rem;
+}
 
+.navbar-expand-lg{
+  background-color: #f8f8ff;
 }
 
