@@ -11,7 +11,7 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = 3000;
+var PORT = 3001;
 
 // Initialize Express
 var app = express();
@@ -26,10 +26,15 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
 
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoscraper";
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/news-that-fit", {
-  useNewUrlParser: true
-});
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+if (process.env.MONGODB_URI) {
+	mongoose.connect(process.env.MONGODB_URI);
+}
+else {
+	mongoose.connect('mongodb://localhost/news-that-fit');
+};
 
 // Routes
 
@@ -38,17 +43,16 @@ app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with axios
   axios.get("https://abcnews.go.com/Technology").then(function(response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
-    console.log('show response ', response)
     var $ = cheerio.load(response.data);
 
-    // Now, we grab every h2 within an article tag, and do the following:
-    $("figure h1").each(function(i, element) {
+    // Now, we grab every h1 within an article tag, and do the following:
+    $("figure h1")().each(function(i, element) {
       // Save an empty result object
       var result = {};
-     // console.log("show results ", result)
-
+      console.log("show my results "+  result)
       // Add the text and href of every link, and save them as properties of the result object
       result.title = $(this).text();
+
       result.link = $(this)
         .children("a")
         .attr("href");
@@ -57,7 +61,7 @@ app.get("/scrape", function(req, res) {
       db.Article.create(result)
         .then(function(dbArticle) {
           // View the added result in the console
-          console.log('show me the new article', dbArticle);
+          console.log(dbArticle);
         })
         .catch(function(err) {
           // If an error occurred, log it

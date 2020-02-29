@@ -1,8 +1,7 @@
 # News-That-Fits-To-Scrape
 
-
 ### Overview
-Using express, mongoose, cheerio, and axios in the background, this application creates a user interface that scrapes skysports.com. The application pulls up to date information including headline titles and summaries of every latest article skysports has to offer. In addition feel free to leave notes/comments and revist them later for your convience.     
+Using express, mongoose, cheerio, and axios in the background, this application creates a user interface that scrapes https://www.skysports.com/football. The application pulls up to date information including headline titles and summaries of every latest article skysports has to offer. In addition feel free to leave notes/comments and revist them later for your convience.     
 
 
 ### How to play: 
