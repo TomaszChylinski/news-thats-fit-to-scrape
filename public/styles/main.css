@@ -1,24 +1,24 @@
-body { background-color: #F2F6D0 }
-#wrapper {
-  width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 5%;
+body {
+  background-color: #f8f8ff;
 }
+
+.container {
+  background-color: white;
+}
+
 #articles {
   display: inline-block;
   overflow: auto;
-  width: 60%;
-  height: 700px;
 }
 #notes {
   float: right;
   width: 30%;
 }
-textarea, input {
+textarea,
+input {
   display: block;
   width: 100%;
-  background-color: #FCF5C7;
+  background-color: #fcf5c7;
 }
 input {
   height: 36px;
@@ -28,3 +28,29 @@ textarea {
   height: 200px;
   font-size: 18px;
 }
+
+.navbar-brand {
+  color: white;
+  background-color: #122d68;
+}
+
+#navbarNav {
+  color: white !important;
+  background-color: #d0021b;
+  display: inline-block;
+  padding-top: .3125rem;
+  padding-bottom: .3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+
+}
+
+a{
+    color: white;
+    padding-right: .5rem;
+    padding-left: .5rem;
+
+}
+
