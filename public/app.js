@@ -2,18 +2,20 @@
 $.getJSON("/articles", function(data) {
     // For each one
     for (var i = 0; i < data.length; i++) {
+      if(i < 5){
       // Display the apropos information on the page
       $("#articles").append("<h3 data-id='" + data[i]._id + "'>" + "Article "+[i+1] + "</h3>", 
         
       "<p>" + " <b> Title: </b>"+ data[i].title +  "<br />" +  
       "<b> Summary: </b> " + data[i].summary + "<br /> "+
       "<b> Link:</b> https://www.nytimes.com/"+data[i].link + "</p> </hr>");
+      }
     }                      
   });
   
   
   // Whenever someone clicks a p tag
-  $(document).on("click", "p", function() {
+  $(document).on("click", "h3", function() {
     // Empty the notes from the note section
     $("#notes").empty();
     // Save the id from the p tag

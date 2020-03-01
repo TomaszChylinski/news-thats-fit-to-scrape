@@ -45,7 +45,7 @@ app.get("/scrape", function(req, res) {
     $("#stream-panel li h2").each(function(i, element) {
       // Save an empty result object
       var result = {};
-      console.log("show results ", result)
+     
 
       // Add the text and href of every link, and save them as properties of the result object
       result.title = $(this).text();
