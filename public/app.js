@@ -2,7 +2,7 @@
 $.getJSON("/articles", function(data) {
     // For each one
     for (var i = 0; i < data.length; i++) {
-      if(i < 5){
+      if(i < 20){
       // Display the apropos information on the page
       $("#articles").append("<h3 data-id='" + data[i]._id + "'>" + "Article "+[i+1] + "</h3>", 
         
@@ -14,11 +14,11 @@ $.getJSON("/articles", function(data) {
   });
   
   
-  // Whenever someone clicks a p tag
+  // Whenever someone clicks a h3 tag
   $(document).on("click", "h3", function() {
     // Empty the notes from the note section
     $("#notes").empty();
-    // Save the id from the p tag
+    // Save the id from the h tag
     var thisId = $(this).attr("data-id");
   
     // Now make an ajax call for the Article
@@ -30,13 +30,13 @@ $.getJSON("/articles", function(data) {
       .then(function(data) {
         console.log(data);
         // The title of the article
-        $("#notes").append("<h2>" + data.title + "</h2>");
+        $("#notes").append("<h3>" + data.title + "</h3>");
         // An input to enter a new title
         $("#notes").append("<input id='titleinput' name='title' >");
         // A textarea to add a new note body
         $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
         // A button to submit a new note, with the id of the article saved to it
-        $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
+        $("#notes").append("<center> <button data-id='" + data._id + "' id='savenote' class='btn btn-primary'>Save Note</button> </center>");
   
         // If there's a note in the article
         if (data.note) {

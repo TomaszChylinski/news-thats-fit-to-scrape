@@ -1,12 +1,46 @@
 # News-That-Fits-To-Scrape
 
 ### Overview
-Using express, mongoose, cheerio, and axios in the background, this application creates a user interface that scrapes https://www.skysports.com/football. The application pulls up to date information including headline titles and summaries of every latest article skysports has to offer. In addition feel free to leave notes/comments and revist them later for your convience.     
+Using express, mongoose, cheerio, and axios in the background, this application creates a user interface that scrapes https://www.nytimes.com/section/technology. The application pulls up to date information including headlines, summaries, links for the top latest articles nytimes/technology has to offer.
+
+### How To Access: 
+
+ # Locally 
+
+ To download the application onto your own machine please use https://github.com/TomaszChylinski/news-thats-fit-to-scrape.git. 
+
+  * Once cloned onto your machine, open the terminal of your choice to the following directory news-thats-fit-to-scrape.
+  * Run npm install (installs all dependecies)
+  * In your mongo terminal create news-that-fit database
+  * Run npm start to start the application locally
+  * Visit your localhost please keep attention to the port you are using
+
+ 
+ 
+  <img src="public/assets/images/news-that-fits-1.PNG" 
+
+  <img src="public/assets/images/news-that-fits-1.jpg" 
 
 
-### How to play: 
 
-- Access the application using the following urls 
+ # Online 
+
+Please visit www.heroku.com (update link once its up on heroku)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 - Users will be directed to the home page of the application. If they decide to continue they may click on the "Take Survey" button. 
             
